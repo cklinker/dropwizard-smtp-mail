@@ -71,7 +71,7 @@ public class MailerFactory {
 
     public final Mailer build(final Environment environment, final String name) {
         final Mailer mailer;
-        mailer = new Mailer(new ServerConfig(server.getHostText(), server.getPort(), username, password), transport);
+        mailer = new Mailer(new ServerConfig(server.getHost(), server.getPort(), username, password), transport);
         // TODO figure out how to collect email metrics
         environment.healthChecks().register(name, new SocketHealthCheck(server));
         return mailer;
