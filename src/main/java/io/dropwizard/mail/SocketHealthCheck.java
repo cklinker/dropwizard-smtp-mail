@@ -16,7 +16,7 @@ public class SocketHealthCheck extends HealthCheck {
 
     @Override
     protected Result check() throws Exception {
-        try (final Socket socket = new Socket(server.getHostText(), server.getPort())) {
+        try (final Socket socket = new Socket(server.getHost(), server.getPort())) {
             return Result.healthy();
         } catch (Exception e) {
             return Result.unhealthy("Could not connect to %s", server);
